@@ -43,8 +43,8 @@ const run = async () => {
 run().catch(console.dir);
 
 app.get('/', (req, res) => {
-    res.send("server is running");
+    res.send("Hotel Reserve app server");
 });
 
-app.listen(port, () => console.log('app running'))
+app.listen(port, () => console.log('Server Running port: ', port));
 
