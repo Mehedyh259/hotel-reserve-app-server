@@ -15,15 +15,13 @@ app.use(express.json());
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.1pxy4.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-const bookingCollection = client.db("hotel-reserve").collection("booking");
 
 const run = async () => {
 
     try {
         await client.connect();
         console.log('db connected');
-
-
+        const bookingCollection = client.db("hotel-reserve").collection("booking");
 
         app.post('/booking', async (req, res) => {
             const booking = req?.body;
